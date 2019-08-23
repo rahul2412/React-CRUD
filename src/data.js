@@ -80,19 +80,20 @@ class Data extends React.Component {
   
   this.setState({data:new_data});
   
-  
   console.log(this.state.data);
+  
   
   
   }
   
-  createIt(e){
-  
+  async createIt(e){
+
   e.preventDefault();
+  
   
   let new_item={id:this.state.id_new, name:this.state.name_new, skill:this.state.skill_new};
   
-  this.setState((prevState) => {
+ await this.setState((prevState) => {
   
   return {
   
@@ -104,7 +105,8 @@ class Data extends React.Component {
   
   this.setState({id_new:"", name_new:"", skill_new:""});
   
-  }
+  console.log(this.state.data);
+}
   
   handleChangeId(e){
   
