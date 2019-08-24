@@ -10,20 +10,15 @@ class Data extends React.Component {
   data: [{id:0, name: "Rohan", skill: "Testing"},
   {id:1, name: "Raghav", skill: "Vue.js"},
   {id:2, name: "Sachin", skill: "Ruby on rails"},
-  {id:3, name: "Ritesh", skill: "IOT"}]};
+  {id:3, name: "Ritesh", skill: "IOT"},
+  {id:4, name: "Yash", skill: "Go"}]};
   
   this.removeIt = this.removeIt.bind(this);
-  
   this.updateIt = this.updateIt.bind(this);
-  
   this.createIt = this.createIt.bind(this);
-  
   this.handleChangeId = this.handleChangeId.bind(this);
-  
   this.handleChangeName = this.handleChangeName.bind(this);
-  
   this.handleChangeSkill = this.handleChangeSkill.bind(this);
-  
   
   }
   
@@ -90,7 +85,25 @@ class Data extends React.Component {
 
   e.preventDefault();
   
-  
+  // for checking whether id is unique or not
+  let x = this.state.id_new;
+  let flag = 1;
+  for (let i=0;i<this.state.data.length;i++)
+  { 
+    let y =  this.state.data[i].id.toString();
+    
+    if(x===y)
+    {
+      alert ("Please enter a unique id ");
+      flag = 0;
+      break;
+    } 
+
+  }
+
+  if (flag ===1 )
+  {
+
   let new_item={id:this.state.id_new, name:this.state.name_new, skill:this.state.skill_new};
   
  await this.setState((prevState) => {
@@ -103,9 +116,10 @@ class Data extends React.Component {
   
   });
   
-  this.setState({id_new:"", name_new:"", skill_new:""});
-  
-  console.log(this.state.data);
+    console.log(this.state.data);
+}
+this.setState({id_new:"", name_new:"", skill_new:""});
+
 }
   
   handleChangeId(e){
@@ -140,11 +154,11 @@ class Data extends React.Component {
   <form onSubmit={this.createIt}>
   
   
-  <input name="id" required type="text" value={this.state.data_form} onChange={this.handleChangeId} placeholder="Enter id" />
+  <input name="id" required type="text" value={this.state.id_new} onChange={this.handleChangeId} placeholder="Enter id" />
   
-  <input name="name" required type="text" value={this.state.data_form} onChange={this.handleChangeName} placeholder="Enter name" />
+  <input name="name" required type="text" value={this.state.name_new} onChange={this.handleChangeName} placeholder="Enter name" />
   
-  <input name="skill" required type="text" value={this.state.data_form} onChange={this.handleChangeSkill} placeholder="Enter skill" />
+  <input name="skill" required type="text" value={this.state.skill_new} onChange={this.handleChangeSkill} placeholder="Enter skill" />
   
   <input type="submit" value="Submit"/>
   
