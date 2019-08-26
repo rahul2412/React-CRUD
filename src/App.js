@@ -6,7 +6,7 @@ function App()
  {
   return (
     <div>
-   <h1> React CRUD </h1>
+   <h1 style={{textAlign:"center"}}> React CRUD </h1>
    <Data/>
   </div>);
 }

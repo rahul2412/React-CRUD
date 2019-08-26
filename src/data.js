@@ -164,7 +164,7 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   
   </form>
   
-  <ul>
+  <ul style= {{listStyleType: "none"}}>
   
   {list.map(item => (
   
