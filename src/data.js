@@ -172,11 +172,11 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   <div><ul style= {{listStyleType: "none"}}>
   <Container>
   <Row>
-    <Col style={{fontWeight: "bold"}} xs={2}>Id</Col>
-    <Col style={{fontWeight: "bold"}} xs={2}>Name</Col>
-    <Col style={{fontWeight: "bold"}} xs={2}>Skill</Col>
-    <Col style={{fontWeight: "bold"}} xs={1}>Action</Col>
-    <Col style={{fontWeight: "bold"}} xs={1}>Action</Col>
+    <Col style={{fontWeight: "bold"}} md={2}>Id</Col>
+    <Col style={{fontWeight: "bold"}} md={2}>Name</Col>
+    <Col style={{fontWeight: "bold"}} md={2}>Skill</Col>
+    <Col style={{fontWeight: "bold"}} md={1}>Action</Col>
+    <Col style={{fontWeight: "bold"}} md={1}>Action</Col>
   </Row>
   </Container>
   
@@ -190,11 +190,11 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   
   <Container>
   <Row>
-    <Col xs={2}>{item.id}</Col>
-    <Col xs={2}>{item.name}</Col>
-    <Col xs={2}>{item.skill}</Col>
-    <Col xs={1}><Button variant="primary" onClick={() => {this.updateIt(item.name) }}>Update</Button></Col>
-    <Col xs={1}><Button variant="danger" onClick={() => {this.removeIt(item.name, item.id) }}>Delete</Button></Col>
+    <Col md={2}>{item.id}</Col>
+    <Col md={2}>{item.name}</Col>
+    <Col md={2}>{item.skill}</Col>
+    <Col md={1}><Button variant="primary" onClick={() => {this.updateIt(item.name) }}>Update</Button></Col>
+    <Col md={1}><Button variant="danger" onClick={() => {this.removeIt(item.name, item.id) }}>Delete</Button></Col>
   </Row>
   </Container>
   
