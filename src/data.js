@@ -1,4 +1,10 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
 
 class Data extends React.Component {
 
@@ -147,11 +153,9 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   return(
   
   <div>
+   
   
-  
-  <br/>
-  
-  <form onSubmit={this.createIt}>
+  <form style={{textAlign:"center"}} onSubmit={this.createIt}>
   
   
   <input name="id" required type="text" value={this.state.id_new} onChange={this.handleChangeId} placeholder="Enter id" />
@@ -160,32 +164,49 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   
   <input name="skill" required type="text" value={this.state.skill_new} onChange={this.handleChangeSkill} placeholder="Enter skill" />
   
-  <input type="submit" value="Submit"/>
+  <Button style={{margin:"10px"}}variant="success" type="submit">Create</Button>
   
   </form>
+  <br/>
   
-  <ul style= {{listStyleType: "none"}}>
+  <div><ul style= {{listStyleType: "none"}}>
+  <Container>
+  <Row>
+    <Col style={{fontWeight: "bold"}} md={2}>Id</Col>
+    <Col style={{fontWeight: "bold"}} md={2}>Name</Col>
+    <Col style={{fontWeight: "bold"}} md={2}>Skill</Col>
+    <Col style={{fontWeight: "bold"}} md={1}>Action</Col>
+    <Col style={{fontWeight: "bold"}} md={1}>Action</Col>
+  </Row>
+  </Container>
   
   {list.map(item => (
   
-  <li key={item.id}>
+  <li style={{
+    border: "1px solid",
+    padding: "10px",
+    boxShadow: "5px 10px #888888"
+  }} key={item.id}>
   
-  <div>{item.id}</div>
-  
-  <div>{item.name}</div>
-  
-  <div>{item.skill}</div>
-  
-  <button onClick={() => {this.removeIt(item.name, item.id) }}>Delete</button>
-  
-  <button onClick={() => {this.updateIt(item.name) }}>Update</button>
+  <Container>
+  <Row>
+    <Col md={2}>{item.id}</Col>
+    <Col md={2}>{item.name}</Col>
+    <Col md={2}>{item.skill}</Col>
+    <Col md={1}><Button variant="primary" onClick={() => {this.updateIt(item.name) }}>Update</Button></Col>
+    <Col md={1}><Button variant="danger" onClick={() => {this.removeIt(item.name, item.id) }}>Delete</Button></Col>
+  </Row>
+  </Container>
   
   <br/><br/></li>
   
   ))}
   
-  </ul></div>
+  </ul>
   
+</div>
+
+</div>  
   )
 
   }
