@@ -164,7 +164,7 @@ this.setState({id_new:"", name_new:"", skill_new:""});
   
   <input name="skill" required type="text" value={this.state.skill_new} onChange={this.handleChangeSkill} placeholder="Enter skill" />
   
-  <Button style={{margin:"10px"}}variant="success" type="submit">Create</Button>
+  <span><Button variant="success" type="submit">Create</Button></span>
   
   </form>
   <br/>
